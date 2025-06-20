@@ -49,11 +49,11 @@ const Contact = () => {
     }, 3000);
 
     emailjs.sendForm(
-       "service_zrr7f5i", // Use environment variable
-     "template_475sioi", // Use environment variable
-      e.target,
-      "Ia-Xa7_xEZnCKoyY1" // Use environment variable
-    )
+  "service_zrr7f5i", // REACT_APP_EMAILJS_SERVICE_ID
+  "template_475sioi", // REACT_APP_EMAILJS_TEMPLATE_ID
+  e.target,
+  "Ia-Xa7_xEZnCKoyY1" // REACT_APP_EMAILJS_USER_ID
+)
     .then((response) => {
       console.log('SUCCESS!', response.status, response.text);
       alert('Message sent successfully!');
