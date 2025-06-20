@@ -27,21 +27,21 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Online cab service ",
       category: "Web Development",
-      description: "A modern e-commerce platform with advanced filtering, secure payments, and real-time inventory management.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      description: " A user-friendly online cab booking platform with real-time tracking, driver management, and secure payment integration",
+      image: "./public/cab.jpg",
+      technologies: ["React", "Node.js", "MongoDB", "Express.js"],
       link: "#",
       github: "#",
     },
     {
       id: 2,
-      title: "Healthcare App",
-      category: "Mobile Development",
-      description: "Mobile application for healthcare providers with patient management and telemedicine features.",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React Native", "Firebase", "Redux", "WebRTC"],
+      title: "PG's Website",
+      category: "Web Development",
+      description: "A smart PG management system for easy room booking, tenant tracking, and automated rent management.",
+      image: "./public/pg.png",
+      technologies: ["React js", "Tailwind CSS", "Redux", "email js"],
       link: "#",
       github: "#",
     },
@@ -57,21 +57,21 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: "Financial Dashboard",
+      title: "7266 Enterntamant",
       category: "Web Development",
       description: "Real-time financial dashboard with data visualization, analytics, and portfolio management features.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      technologies: ["React", "D3.js", "Express", "PostgreSQL"],
+      image: "./public/7266.png",
+      technologies: ["React", "email.js", "Express", "Tailwind CSS"],
       link: "#",
       github: "#",
     },
     {
       id: 5,
       title: "Food Delivery App",
-      category: "Mobile Development",
+      category: "Web Development",
       description: "Complete food delivery solution with order tracking, payment integration, and real-time updates.",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Flutter", "Firebase", "Google Maps", "Stripe"],
+      image: "./public/paratha.png",
+      technologies: ["react", "tailwind CSS", "redux", "Stripe"],
       link: "#",
       github: "#",
     },
@@ -81,13 +81,13 @@ const Projects = () => {
       category: "UI/UX Design",
       description: "Creative portfolio website showcasing artistic work with smooth animations and gallery features.",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80",
-      technologies: ["Vue.js", "GSAP", "Netlify", "Headless CMS"],
+      technologies: ["react.js", "tailwind CSS", "Netlify", "Framer Motion"],
       link: "#",
       github: "#",
     },
   ];
 
-  const categories = ["All", "Web Development", "Mobile Development", "UI/UX Design"];
+  const categories = ["All", "Web Development", "UI/UX Design"];
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredProjects = activeCategory === "All" 

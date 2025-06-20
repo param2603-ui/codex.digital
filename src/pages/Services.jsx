@@ -40,9 +40,9 @@ const Services = () => {
     },
     {
       icon: Smartphone,
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile applications that deliver seamless experiences across all devices.",
-      features: ["iOS & Android", "Cross-Platform", "App Store Optimization", "Push Notifications"],
+      title: "Software Development",
+      description: "Custom software solutions that turn your ideas into powerful, scalable digital products",
+      features: ["Custom Software Solutions", "Cross-Platform", "UI/UX Design Integration", "Security & Compliance"],
       color: "from-green-500 to-emerald-500",
     },
     {

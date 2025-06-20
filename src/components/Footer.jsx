@@ -1,13 +1,13 @@
 
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Github, href: "#", label: "github" },
+    // { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
@@ -72,11 +72,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <div className="space-y-3 text-muted-foreground">
-              <p>hello@codexdigital.com</p>
-              <p>+1 (555) 123-4567</p>
+              <p>team.codexdigital@gmail.com</p>
+              <p>+91 8320241898 <br/> +91 8866779476</p>
               <p>
-                123 Digital Avenue<br />
-                Tech City, TC 12345
+                Bhavnagar<br />
+                Gujarat, India 364001
               </p>
             </div>
           </div>

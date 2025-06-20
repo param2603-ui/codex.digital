@@ -37,29 +37,29 @@ const Home = () => {
     },
     {
       icon: Award,
-      title: "Award-Winning",
-      description: "Recognized excellence in digital innovation",
+      title: "Reliable Support",
+      description: "Dedicated support and communication every step of the way.",
     },
   ];
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      company: "TechStart Inc.",
+      name: "rudra",
+      company: "Comfort Living PG",
       text: "Codex Digital transformed our vision into reality with exceptional attention to detail.",
       rating: 5,
     },
     {
       name: "Michael Chen",
-      company: "Growth Solutions",
+      company: "7266 Entertainment",
       text: "Outstanding work! Their team delivered beyond our expectations.",
       rating: 5,
     },
     {
-      name: "Emma Davis",
-      company: "Creative Agency",
+      name: "mohammad abbas ",
+      company: "speedyrxmrds.com",
       text: "Professional, innovative, and incredibly responsive team.",
-      rating: 5,
+      rating: 4,
     },
   ];
 
@@ -126,15 +126,15 @@ const Home = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span>10+ Years of Digital Excellence</span>
+                  <span>Driven by Innovation and Fresh Ideas.</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span>500+ Successful Projects</span>
+                  <span>Client-Centered Approach.</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-500" />
-                  <span>99% Client Satisfaction Rate</span>
+                  <span>Committed to Quality and Growth.</span>
                 </div>
               </div>
             </div>

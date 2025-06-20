@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -39,7 +39,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
     console.log("Form submitted:", formData);
     setIsSubmitted(true);
     
@@ -48,25 +47,40 @@ const Contact = () => {
       setIsSubmitted(false);
       setFormData({ name: "", email: "", subject: "", message: "" });
     }, 3000);
+
+    emailjs.sendForm(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID, // Use environment variable
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // Use environment variable
+      e.target,
+      process.env.REACT_APP_EMAILJS_USER_ID // Use environment variable
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      alert('Message sent successfully!');
+    })
+    .catch((error) => {
+      console.error('FAILED...', error);
+      alert('Failed to send the message. Please try again.');
+    });
   };
 
   const contactInfo = [
     {
       icon: Mail,
       title: "Email",
-      details: "hello@codexdigital.com",
-      link: "mailto:hello@codexdigital.com",
+      details: "team.codexdigital@gmail.com",
+      link: "team.codexdigital@gmail.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      details: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
+      details: "+91 8320241898 ,+91 8866779476",
+      link: "tel:+91 832041898",
     },
     {
       icon: MapPin,
       title: "Address",
-      details: "123 Digital Avenue, Tech City, TC 12345",
+      details: " Bhavnagar, Gujarat, India 364001",
       link: "#",
     },
   ];
@@ -127,7 +141,7 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Map Placeholder
               <div className="mt-8">
                 <div className="w-full h-64 bg-secondary/50 rounded-2xl flex items-center justify-center">
                   <div className="text-center">
@@ -136,7 +150,7 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">Google Maps integration would go here</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Contact Form */}
@@ -152,7 +166,7 @@ const Contact = () => {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -166,7 +180,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-background"
-                        placeholder="John Doe"
+                        placeholder="codex "
                       />
                     </div>
                     
@@ -182,7 +196,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-background"
-                        placeholder="john@example.com"
+                        placeholder="team.codexdigital@gmail.com"
                       />
                     </div>
                   </div>
