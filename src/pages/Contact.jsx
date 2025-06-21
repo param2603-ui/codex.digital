@@ -81,7 +81,7 @@ const Contact = () => {
       icon: MapPin,
       title: "Address",
       details: " Bhavnagar, Gujarat, India 364001",
-      link: "https://www.google.com/maps/place/Bhavnagar,+Gujarat/@21.7654284,72.0799205,12z/data=!3m1!4b1!4m6!3m5!1s0x395f5081abb84e2f:0xf676d64c6e13716c!8m2!3d21.7644725!4d72.1519304!16zL20vMDRwbHky?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D",
+      link: "https://maps.app.goo.gl/yM8dXLmeHmrLXSWL9",
     },
   ];
 
