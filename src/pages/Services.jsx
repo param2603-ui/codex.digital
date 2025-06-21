@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Code, Palette, foldercode, Globe, Zap, Shield } from "lucide-react";
+import { Code, Palette, Foldercode, Globe, Zap, Shield } from "lucide-react";
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -39,7 +39,7 @@ const Services = () => {
       color: "from-purple-500 to-pink-500",
     },
     {
-      icon: foldercode,
+      icon: Foldercode,
       title: "Software Development",
       description: "Custom software solutions that turn your ideas into powerful, scalable digital products",
       features: ["Custom Software Solutions", "Cross-Platform", "UI/UX Design Integration", "Security & Compliance"],
