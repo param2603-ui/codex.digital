@@ -1,13 +1,13 @@
 
 import { Link } from "react-router-dom";
-import { Github, Whatsapp, Instagram, Linkedin } from "lucide-react";
+import { Github, message-circle , Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/param2603-ui", label: "github" },
-    { icon: Whatsapp, href: "#", label: "Whatsapp" },
+    { icon: message-circle, href: "#", label: "message-circle" },
     { icon: Instagram, href: "https://www.instagram.com/codex__digital/", label: "Instagram" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
