@@ -69,7 +69,7 @@ const Contact = () => {
       icon: Mail,
       title: "Email",
       details: "team.codexdigital@gmail.com",
-      link: "team.codexdigital@gmail.com",
+      link: "mailto:team.codexdigital@gmail.com",
     },
     {
       icon: Phone,
