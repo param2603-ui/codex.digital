@@ -279,12 +279,12 @@ const Projects = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Let's create something amazing together. From concept to completion, we're here to help.
           </p>
-          <a
-            href="/contact"
+         <Link
+            to="/contact"
             className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
             Start Your Project
-          </a>
+          </Link>
         </div>
       </section>
     </div>
