@@ -283,7 +283,7 @@ const Projects = () => {
             to="/contact"
             className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            Start Your Project
+            Start Project
           </Link>
         </div>
       </section>
