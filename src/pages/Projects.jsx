@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { ExternalLink, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -283,7 +284,7 @@ const Projects = () => {
             to="/contact"
             className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            Start Project
+            Get Started Today
           </Link>
         </div>
       </section>
