@@ -7,9 +7,9 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Github, href: "https://github.com/param2603-ui", label: "github" },
-    { icon: MessageCircle, href: "#", label: "message" },
+    { icon: MessageCircle, href: "https://wa.me/918866779476", label: "message" },
     { icon: Instagram, href: "https://www.instagram.com/codex__digital/", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/param-acharya-1b9774370/", label: "LinkedIn" },
   ];
 
   const quickLinks = [
