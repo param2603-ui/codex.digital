@@ -65,7 +65,7 @@ const Services = () => {
       title: "Security & Maintenance",
       description: "Keep your digital assets secure and up-to-date with our ongoing maintenance and security services.",
       features: ["Security Audits", "Regular Updates", "Backup Solutions", "24/7 Monitoring"],
-      color: "from-indigo-500 to-purple-500",
+      // color: "from-indigo-500 to-purple-500",
     },
   ];
 
