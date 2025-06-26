@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Code, Palette, Foldercode, Globe, Zap, Shield } from "lucide-react";
+import { Code, Palette, Smartphone, Globe, Zap, Shield } from "lucide-react";
 import { Link } from 'react-router-dom';
 
 const Services = () => {
@@ -40,7 +40,7 @@ const Services = () => {
       color: "from-purple-500 to-pink-500",
     },
     {
-      icon: Foldercode,
+      icon: Smartphone,
       title: "Software Development",
       description: "Custom software solutions that turn your ideas into powerful, scalable digital products",
       features: ["Custom Software Solutions", "Cross-Platform", "UI/UX Design Integration", "Security & Compliance"],
