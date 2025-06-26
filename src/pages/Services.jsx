@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Code, Palette, Foldercode, Globe, Zap, Shield } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -187,20 +188,20 @@ const Services = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Let's discuss your project and create something amazing together.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
-            >
-              Start Your Project
-            </a>
-            <a
-              href="/projects"
-              className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
-            >
-              View Our Work
-            </a>
-          </div>
+         <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  <Link
+    to="/contact"
+    className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
+  >
+    Start Your Project
+  </Link>
+  <Link
+    to="/projects"
+    className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
+  >
+    View Our Work
+  </Link>
+</div>
         </div>
       </section>
     </div>
