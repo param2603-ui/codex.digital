@@ -98,7 +98,7 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group bg-background border border-border rounded-2xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-500 cursor-pointer"
+                className="group bg-background border border-border rounded-2xl p-8  transition-all duration-500 cursor-pointer"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon */}
