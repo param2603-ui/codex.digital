@@ -191,13 +191,13 @@ const Services = () => {
          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in">
               <Link
                 to="/contact"
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
+                className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
               >
                 Start Your Project
               </Link>
               <Link
                 to="/projects"
-                className="px-8 py-4 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
               >
                 View Our Work
               </Link>
