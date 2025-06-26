@@ -188,18 +188,18 @@ const Services = () => {
             Let's discuss your project and create something amazing together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-                to="/contact"
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
-              >
-                Start Your Project
-              </Link>
-            <Link
+            <a
+              href="/contact"
+              className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              Start Your Project
+            </a>
+            <a
               href="/projects"
               className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
             >
               View Our Work
-            </Link>
+            </a>
           </div>
         </div>
       </section>
