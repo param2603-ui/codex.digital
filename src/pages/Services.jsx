@@ -65,7 +65,7 @@ const Services = () => {
       title: "Security & Maintenance",
       description: "Keep your digital assets secure and up-to-date with our ongoing maintenance and security services.",
       features: ["Security Audits", "Regular Updates", "Backup Solutions", "24/7 Monitoring"],
-      // color: "from-indigo-500 to-purple-500",
+      color: "from-indigo-500 to-purple-500",
     },
   ];
 
@@ -102,12 +102,12 @@ const Services = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon */}
-                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl mb-6 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl mb-6 flex items-center justify-center  transition-transform duration-300`}>
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-2xl font-bold mb-4  transition-colors duration-300">
                   {service.title}
                 </h3>
                 
