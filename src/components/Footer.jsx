@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Github, MessageCircle, Instagram, Linkedin } from "lucide-react";
 
@@ -85,7 +84,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground">
-            © {currentYear} Codex Digital. All rights reserved.<br>Design & Develop by Codex Digital
+            © {currentYear} Codex Digital. All rights reserved.<br />Design & Develop by Codex Digital
           </p>
         </div>
       </div>
