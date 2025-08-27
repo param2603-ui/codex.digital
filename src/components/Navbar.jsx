@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
@@ -29,17 +28,19 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 bg-gradient-to-br from-purple-100 via-pink-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 z-50 transition-all duration-200 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-transparent"
+          ? "bg-transparent"
+          : "bg-transparent" 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link
             to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
           >
             Codex Digital
@@ -51,6 +52,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-primary ${
                   location.pathname === link.path
                     ? "text-primary"

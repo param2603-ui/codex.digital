@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import emailjs from 'emailjs-com';
+import { motion } from "framer-motion"; // <-- Add this import
+import SplitText from "../hooks/SplitText";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -70,49 +72,75 @@ const Contact = () => {
       title: "Email",
       details: "team.codexdigital@gmail.com",
       link: "mailto:team.codexdigital@gmail.com",
+      bgColor: "bg-blue-600", // blue
     },
     {
       icon: Phone,
       title: "Phone",
-      details: "+91 8320241898 ,+91 8866779476",
-      link: "tel:+91 832041898",
+      details: "+91 8866779476 ,+91 8320241898",
+      link: "tel:+91 8866779476",
+      bgColor: "bg-green-600", // green
     },
     {
       icon: MapPin,
       title: "Address",
       details: " Bhavnagar, Gujarat, India 364001",
       link: "https://maps.app.goo.gl/yM8dXLmeHmrLXSWL9",
+      bgColor: "bg-purple-600", // purple
     },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Get In Touch
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+     <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="min-h-[500px]   bg-[url('https://cdn.pixabay.com/photo/2017/03/28/12/17/chairs-2181994_1280.jpg')] bg-cover bg-center relative dark:bg-slate-900/90 flex items-center justify-center" >
+        <div className=" w-full h-full absolute inset-0 bg-gradient-to-br from-white/50 to-purple-50/70 dark:from-slate-900/80 dark:to-slate-900/80 z-0" />
+        <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <SplitText
+            text=" Get In Touch"
+            className="text-4xl md:text-6xl text-center font-bold mb-6 color-blue drop-shadow-lg text-color-blue text-[#5324c9]"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          /> 
+          <h2 className="text-2xl md:text-3xl text-center font-bold mb-6 text-gray-700 dark:text-gray-300">Contact for Premium Business Services</h2>
+           
+            <p className="text-xl text-gray-900 dark:text-gray-300 max-w-4xl mx-auto">
               Ready to start your project? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
             </p>
           </div>
-        </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
       <section
         id="contact-content"
         data-animate
-        className={`py-20 transition-all duration-1000 ${
+        className={`py-20 transition-all duration-1000 bg-gradient-to-br from-blue-100 via-white to-purple-100 
+           dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 ${
           isVisible["contact-content"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="space-y-8"
+            >
               <div>
                 <h2 className="text-3xl font-bold mb-6">Let's Start a Conversation</h2>
                 <p className="text-lg text-muted-foreground mb-8">
@@ -124,42 +152,41 @@ const Contact = () => {
               {/* Contact Info Cards */}
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <a
+                  <motion.a
                     key={index}
                     href={info.link}
-                    className="flex items-start space-x-4 p-6 bg-secondary/50 rounded-2xl hover:bg-secondary/70 hover:scale-105 transition-all duration-300 group"
+                    initial={{ opacity: 0, x: -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ amount: 0.2 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 }}
+                    className="flex items-start space-x-4 p-6 bg-[#e4e4e4] dark:bg-[#1e3657] hover:bg-[#c4c4c4] dark:hover:bg-[#2a2e3b] rounded-2xl hover:scale-105 transition-all duration-300 group"
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className={`w-12 h-12 ${info.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                       <info.icon className="w-6 h-6 text-white" />
                     </div>
-                    <div>
+                    <div >
                       <h3 className="text-lg font-semibold mb-1">{info.title}</h3>
                       <p className="text-muted-foreground">{info.details}</p>
                     </div>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
-
-              {/* Map Placeholder
-              <div className="mt-8">
-                <div className="w-full h-64 bg-secondary/50 rounded-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">Interactive Map</p>
-                    <p className="text-sm text-muted-foreground">Google Maps integration would go here</p>
-                  </div>
-                </div>
-              </div> */}
-            </div>
+            </motion.div>
 
             {/* Contact Form */}
-            <div className="bg-background border border-border rounded-2xl p-8 shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="bg-[#f9fafb] dark:bg-[#1e3657] border border-border rounded-2xl p-8 shadow-lg"
+            >
               <h3 className="text-2xl font-bold mb-6">Send us a Message</h3>
               
               {isSubmitted ? (
                 <div className="text-center py-8">
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                  <CheckCircle className="w-16 h-16 text-green-00 mx-auto mb-4" />
                   <h4 className="text-xl font-semibold mb-2">Message Sent!</h4>
                   <p className="text-muted-foreground">
                     Thank you for reaching out. We'll get back to you within 24 hours.
@@ -179,7 +206,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-background"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-[#ffffff] dark:bg-[#102035]"
                         placeholder="codex "
                       />
                     </div>
@@ -195,7 +222,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-background"
+                        className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-[#ffffff] dark:bg-[#102035]"
                         placeholder="team.codexdigital@gmail.com"
                       />
                     </div>
@@ -212,7 +239,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-background"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-[#ffffff] dark:bg-[#102035]"
                       placeholder="Project Inquiry"
                     />
                   </div>
@@ -228,7 +255,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-background resize-none"
+                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 bg-[#ffffff] dark:bg-[#102035] resize-none"
                       placeholder="Tell us about your project..."
                     ></textarea>
                   </div>
@@ -242,7 +269,7 @@ const Contact = () => {
                   </button>
                 </form>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -255,7 +282,7 @@ const Contact = () => {
           isVisible.faq ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
         }`}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-lg text-muted-foreground">
@@ -263,8 +290,8 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="space-y-6">
-            {[
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            { [
               {
                 question: "How long does a typical project take?",
                 answer: "Project timelines vary depending on scope and complexity. A simple website typically takes 2-4 weeks, while more complex applications can take 2-6 months. We'll provide a detailed timeline during our initial consultation.",
@@ -282,14 +309,18 @@ const Contact = () => {
                 answer: "Absolutely! We love working with established brands and will ensure all our designs and developments align perfectly with your existing brand guidelines and visual identity.",
               },
             ].map((faq, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ amount: 0.2 }}
+                transition={{ duration: 0.7, delay: index * 0.2 }}
                 className="bg-background border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
                 <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

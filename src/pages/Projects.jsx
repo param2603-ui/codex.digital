@@ -1,29 +1,12 @@
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import SplitText from "../hooks/SplitText";
+
 
 const Projects = () => {
-  const [isVisible, setIsVisible] = useState({});
   const [selectedProject, setSelectedProject] = useState(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible((prev) => ({ ...prev, [entry.target.id]: true }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = document.querySelectorAll("[data-animate]");
-    elements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
 
   const projects = [
     {
@@ -95,21 +78,38 @@ const Projects = () => {
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="overflow-hidden min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Our Projects
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore our portfolio of innovative digital solutions that have transformed businesses and delighted users.
-            </p>
-          </div>
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="min-h-[500px]   bg-[url('https://cdn.pixabay.com/photo/2017/03/28/12/17/chairs-2181994_1280.jpg')] bg-cover bg-center relative dark:bg-slate-900/90 flex items-center justify-center" >
+        <div className=" w-full h-full absolute inset-0 bg-gradient-to-br from-white/50 to-purple-50/70 dark:from-slate-900/80 dark:to-slate-900/80 z-0" />
+        <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <SplitText
+            text="Our Projects"
+            className="text-4xl p-2 md:text-6xl text-center font-bold mb-6 color-blue drop-shadow-lg text-color-blue text-[#5324c9]"
+            delay={100}
+            duration={0.6}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          /> 
+          <h2 className="text-2xl md:text-3xl text-center font-bold mb-6 text-gray-700 dark:text-gray-300">Turning Your Goals Into Our Portfolio</h2>
+         
+          <p className="text-xl text-gray-800 dark:text-gray-300 max-w-4xl mx-auto">
+            Explore our portfolio of innovative digital solutions that have transformed businesses and delighted users.
+          </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Filter Categories */}
       <section className="py-8 border-b border-border">
@@ -133,20 +133,24 @@ const Projects = () => {
       </section>
 
       {/* Projects Grid */}
-      <section
+      <motion.section
         id="projects-grid"
-        data-animate
-        className={`py-20 transition-all duration-1000 ${
-          isVisible["projects-grid"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-        }`}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="py-20 bg-gradient-to-br from-cyan-50 via-fuchsia-50 to-yellow-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 transition-all duration-1000"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <div
+              <motion.div
                 key={project.id}
-                className="group relative bg-background border border-border rounded-2xl overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-500 cursor-pointer"
-                style={{ animationDelay: `${index * 100}ms` }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ amount: 0.2 }}
+                transition={{ duration: 0.7, delay: index * 0.2 }}
+                className="group relative bg-white/80 dark:bg-slate-900/80 border border-fuchsia-100 dark:border-slate-700 rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Image */}
@@ -157,10 +161,9 @@ const Projects = () => {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
                   {/* Overlay Icons */}
                   <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
+                    {/* <a
                       href={project.link}
                       className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors duration-200"
                       onClick={(e) => e.stopPropagation()}
@@ -173,7 +176,7 @@ const Projects = () => {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="w-4 h-4 text-gray-800" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
 
@@ -184,15 +187,12 @@ const Projects = () => {
                       {project.category}
                     </span>
                   </div>
-                  
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-semibold mb-3 text-fuchsia-700 dark:text-cyan-300 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
-                  
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
                     {project.description}
                   </p>
-
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
@@ -205,11 +205,11 @@ const Projects = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Project Modal */}
       {selectedProject && (
@@ -228,7 +228,6 @@ const Projects = () => {
                 ×
               </button>
             </div>
-            
             <div className="p-8">
               <div className="flex items-center justify-between mb-4">
                 <span className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-full">
@@ -241,18 +240,16 @@ const Projects = () => {
                   >
                     <ExternalLink className="w-5 h-5" />
                   </a>
-                  <a
+                  {/* <a
                     href={selectedProject.github}
                     className="p-2 bg-secondary rounded-full hover:bg-secondary/80 transition-colors duration-200"
                   >
                     <Github className="w-5 h-5" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
-              
-              <h2 className="text-3xl font-bold mb-4">{selectedProject.title}</h2>
-              <p className="text-muted-foreground mb-6 leading-relaxed">{selectedProject.description}</p>
-              
+              <h2 className="text-3xl font-bold mb-4 text-fuchsia-700 dark:text-cyan-300">{selectedProject.title}</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">{selectedProject.description}</p>
               <div className="border-t border-border pt-6">
                 <h3 className="text-lg font-semibold mb-3">Technologies Used</h3>
                 <div className="flex flex-wrap gap-2">
@@ -272,22 +269,29 @@ const Projects = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="py-20 bg-gradient-to-r from-fuchsia-600 via-cyan-500 to-yellow-400 text-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 drop-shadow-lg">
             Have a Project in Mind?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Let's create something amazing together. From concept to completion, we're here to help.
           </p>
-         <Link
+          <Link
             to="/contact"
-            className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="inline-block px-8 py-4 bg-white text-fuchsia-600 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
             Get Started Today
           </Link>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
