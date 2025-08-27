@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import emailjs from 'emailjs-com';
 import { motion } from "framer-motion"; // <-- Add this import
 import SplitText from "../hooks/SplitText";
+import SEO from "../components/SEO";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -92,6 +93,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact — Codex Digital"
+        description="Get in touch with Codex Digital for web development, design or performance optimization projects."
+        path="/contact"
+        image="/servicePhoto.jpg"
+      />
       {/* Hero Section */}
      <motion.section
         initial={{ opacity: 0, y: 40 }}

@@ -2,6 +2,7 @@ import { Code, Palette, Smartphone, Globe, Zap, Shield,SearchCode,SquarePen ,Tru
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import SplitText from "../hooks/SplitText";
+import SEO from "../components/SEO";
 
 
 
@@ -54,6 +55,12 @@ const Services = () => {
 
   return (
     <div className="overflow-hidden min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative" id="services">
+      <SEO
+        title="Codex Digital — Services | Web Development, Design & Optimization"
+        description="Comprehensive digital solutions including web development, UI/UX, e-commerce, performance optimization and security."
+        path="/services"
+        image="/servicePhoto.jpg"
+      />
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}

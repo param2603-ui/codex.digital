@@ -4,6 +4,7 @@ import { CheckCircle, Star, Users, Award, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Typewriter } from 'react-simple-typewriter';
 import { useSpring, animated, config } from '@react-spring/web'
+import SEO from "../components/SEO";
 
 
 
@@ -88,6 +89,12 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative">
+      <SEO
+        title="Codex Digital — Creative Web Development | Home"
+        description={descreption.title}
+        path="/"
+        image="/homePhoto.jpg"
+      />
 
       {/* Hero Section */}
       <section className="relative flex flex-col-reverse md:flex-row items-center justify-between px-0 sm:px-0 py-12 md:py-24 gap-12 md:gap-0 overflow-hidden w-full min-h-[600px]">
@@ -104,7 +111,7 @@ const Home = () => {
           {/* Left: Text */}
           <div className="w-full md:w-1/2 flex flex-col items-start justify-center">
             <h1 className="text-5xl md:text-6xl font-extrabold mb-6  drop-shadow-lg flex flex-wrap items-center justify-center gap-2">
-              <span className="text-3xl md:text-6xl text-gray-900 dark:text-white mr-2">We</span>
+              <span className="text-4xl md:text-6xl text-gray-900 dark:text-white mr-2">We</span>
               <span className="inline-block align-middle bg-gradient-to-r from-fuchsia-400 via-cyan-400 to-yellow-400 bg-clip-text text-transparent">
                 <Typewriter
                   words={["Innovate.", "Design.", "Create.", "Develop.", "Optimize."]}

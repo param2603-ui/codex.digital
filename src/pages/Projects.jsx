@@ -3,6 +3,7 @@ import { ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SplitText from "../hooks/SplitText";
+import SEO from "../components/SEO";
 
 
 const Projects = () => {
@@ -81,6 +82,12 @@ const Projects = () => {
 
   return (
     <div className="overflow-hidden min-h-screen bg-gradient-to-br from-purple-100 via-pink-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative">
+      <SEO
+        title="Codex Digital — Projects | Portfolio"
+        description="Explore Codex Digital's portfolio of websites and applications showcasing design, development, and performance work."
+        path="/projects"
+        image="/7266.png"
+      />
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}

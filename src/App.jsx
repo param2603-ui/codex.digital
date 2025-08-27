@@ -45,11 +45,11 @@ const App = () => {
           <meta property="og:description" content="Transforming ideas into digital reality. Stunning web experiences, custom software, and more." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://codexdigital.ltd" />
-          <meta property="og:image" content="/public/logo.jpg" />
+          <meta property="og:image" content="/logo.jpg" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Codex Digital | Web Development & Digital Solutions" />
           <meta name="twitter:description" content="Transforming ideas into digital reality. Stunning web experiences, custom software, and more." />
-          <meta name="twitter:image" content="/public/logo.jpg" />
+          <meta name="twitter:image" content="/logo.jpg" />
         </Helmet>
         <div className={`min-h-screen bg-background text-foreground transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
           <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
